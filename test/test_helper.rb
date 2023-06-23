@@ -27,9 +27,9 @@ SimpleCov.formatters = [
   SimpleCov::Formatter::HTMLFormatter,
 ]
 
-SimpleCov.start do
-  skip_token 'skip_test_coverage'
-end
+# SimpleCov.start do
+#   skip_token 'skip_test_coverage'
+# end
 
 $LOAD_PATH.unshift File.expand_path("../../lib", __FILE__)
 require "agilix"
