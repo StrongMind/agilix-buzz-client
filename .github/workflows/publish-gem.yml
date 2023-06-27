@@ -1,0 +1,11 @@
+name: Publish Gem
+
+on:
+  workflow_dispatch:
+
+jobs:
+  PublishGem:
+    uses: Strongmind/public-reusable-workflows/.github/workflows/publish-gem.yml@main
+    with:
+      ruby_version: '3.1.4'
+    secrets: inherit

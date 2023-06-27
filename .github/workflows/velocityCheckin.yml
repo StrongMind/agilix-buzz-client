@@ -1,0 +1,45 @@
+# This Workflow  takes 5 inputs and sends them to the velocity deployment
+# endpoint
+
+name: VelocityCheckin
+
+# Controls when the workflow will run
+on:
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+    inputs:
+      sourceEnvironment:
+        required: true
+  workflow_call:
+    inputs:
+      sourceBranch:
+        required: true
+        type: string
+      sourceRevision:
+        required: true
+        type: string
+      sourceRepo:
+        required: true
+        type: string
+      sourceEnvironment:
+        required: true
+        type: string
+      sourceVersion:
+        required: true
+        type: string
+    secrets:
+      VELOCITY_DEPLOYMENT_TOKEN:
+        required: true
+
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  # This workflow contains a single job called "build"
+  build:
+    # The type of runner that the job will run on
+    runs-on: ubuntu-latest
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+      # run the curl command, taking inputs.
+      - run: curl -d "token=${{ secrets.VELOCITY_DEPLOYMENT_TOKEN }}" -d "revision=${{ inputs.sourceRevision }}" -d "repository_url=${{ inputs.sourceRepo }}" -d "branch=${{ inputs.sourceBranch }}" -d "version=${{ inputs.sourceVersion }}" -d "environment=${{ inputs.sourceEnvironment }}"  https://velocity.codeclimate.com/deploys
