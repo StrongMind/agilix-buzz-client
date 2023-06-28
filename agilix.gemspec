@@ -4,7 +4,7 @@ require "agilix/version"
 
 Gem::Specification.new do |spec|
   spec.name          = "agilix-buzz-client"
-  spec.version       = Agilix-Buzz-Client::VERSION
+  spec.version       = Agilix::VERSION
   spec.authors       = ["Strongmind"]
   spec.email         = ["qwertytalk@strongmind.com"]
 
