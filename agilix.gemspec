@@ -40,8 +40,6 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "pry", '~> 0.14.2'
   # spec.add_development_dependency "guard"
   # spec.add_development_dependency "guard-minitest"
-  spec.add_development_dependency "coveralls", '~> 0.8.23'
-  spec.add_development_dependency "simplecov"
   spec.add_development_dependency "dotenv", '~> 2.8'
   spec.add_dependency "httparty", '~> 0.21.0'
   # spec.add_dependency "activesupport"
