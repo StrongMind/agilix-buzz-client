@@ -1,11 +1,7 @@
 name: Publish Gem
 
 on:
-  workflow_call:
-    inputs:
-      ruby_version:
-        required: true
-        type: string
+  workflow_dispatch:
 
 jobs:
   bundle-and-test:
@@ -17,6 +13,7 @@ jobs:
         with:
           ruby-version: ${{ inputs.ruby_version }}
       - run: bundle install
+      - run: bundle exec rake test
 
   publish-gem:
     needs: bundle-and-test
