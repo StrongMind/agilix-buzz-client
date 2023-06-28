@@ -3,7 +3,7 @@ $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 require "agilix/version"
 
 Gem::Specification.new do |spec|
-  spec.name          = "agilix"
+  spec.name          = "strongmind-agilix-buzz-client"
   spec.version       = Agilix::VERSION
   spec.authors       = ["Strongmind"]
   spec.email         = ["qwertytalk@strongmind.com"]
