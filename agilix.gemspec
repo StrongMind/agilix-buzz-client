@@ -5,22 +5,18 @@ require "agilix/version"
 Gem::Specification.new do |spec|
   spec.name          = "agilix"
   spec.version       = Agilix::VERSION
-  spec.authors       = ["Ben Eggett"]
-  spec.email         = ["beneggett@gmail.com"]
+  spec.authors       = ["Strongmind"]
+  spec.email         = ["qwertytalk@strongmind.com"]
 
   spec.summary       = %q{Agilix Buzz API wrapper}
   spec.description   = %q{Fully implements Agilix Buzz API in Ruby}
-  spec.homepage      = "https://github.com/beneggett/agilix"
-  spec.license       = "MIT"
+  spec.homepage      = "https://github.com/Strongmind/agilix-buzz-client"
 
-  # Prevent pushing this gem to RubyGems.org. To allow pushes either set the 'allowed_push_host'
-  # to allow pushing to a single host or delete this section to allow pushing to any host.
-  if spec.respond_to?(:metadata)
-    spec.metadata["allowed_push_host"] = "https://rubygems.org"
-  else
-    raise "RubyGems 2.0 or newer is required to protect against " \
-      "public gem pushes."
-  end
+
+  spec.metadata["allowed_push_host"] = "https://rubygems.org/"
+  spec.metadata["homepage_uri"] = spec.homepage
+  spec.metadata["source_code_uri"] = "https://github.com/Strongmind/agilix-buzz-client"
+  spec.metadata["changelog_uri"] = "https://github.com/Strongmind/agilix-buzz-client"
 
 
   # Specify which files should be added to the gem when it is released.
