@@ -21,4 +21,5 @@ mkmf.log
 .ruby-gemset
 .idea
 .idea/
+.iml
 
