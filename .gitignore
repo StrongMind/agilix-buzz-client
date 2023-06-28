@@ -19,4 +19,7 @@ mkmf.log
 .env
 .ruby-version
 .ruby-gemset
+.idea
+.idea/
+.iml
 
