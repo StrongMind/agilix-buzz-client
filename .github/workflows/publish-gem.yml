@@ -1,11 +1,52 @@
 name: Publish Gem
 
 on:
-  workflow_dispatch:
+  workflow_call:
+    inputs:
+      ruby_version:
+        required: true
+        type: string
 
 jobs:
-  PublishGem:
-    uses: Strongmind/public-reusable-workflows/.github/workflows/publish-gem.yml@main
+  bundle-and-test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: ${{ inputs.ruby_version }}
+      - run: bundle install
+
+  publish-gem:
+    needs: bundle-and-test
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      #- name: Publish gem
+      #  uses: cadwallion/publish-rubygems-action@master
+      #  env:
+      #    GITHUB_TOKEN: ${{ secrets.GH_ACCESS_TOKEN }}
+      #    RUBYGEMS_API_KEY: ${{ secrets.RUBYGEMS_API_KEY }}
+      #    RELEASE_COMMAND: rake build gem push
+      - name: Publish to RubyGems
+        run: |
+          mkdir -p $HOME/.gem
+          touch $HOME/.gem/credentials
+          chmod 0600 $HOME/.gem/credentials
+          printf -- "---\n:rubygems_api_key: ${GEM_HOST_API_KEY}\n" > $HOME/.gem/credentials
+          gem build *.gemspec
+          gem push *.gem
+        env:
+          GEM_HOST_API_KEY: "${{secrets.RUBYGEMS_API_KEY}}"
+  VelocityCheckin:
+    uses: StrongMind/public-reusable-workflows/.github/workflows/velocityCheckin.yml@main
     with:
-      ruby_version: '3.1.4'
-    secrets: inherit
+      sourceEnvironment: prod
+      sourceBranch: ${{ github.ref_name }}
+      sourceRevision: ${{ github.sha }}
+      sourceRepo: ${{ github.server_url }}/${{ github.repository }}
+      sourceVersion: ${{ github.run_id }}.${{ github.run_number }}.${{ github.run_attempt }}
+    secrets:
+      VELOCITY_DEPLOYMENT_TOKEN: ${{ secrets.VELOCITY_DEPLOYMENT_TOKEN }}
+
