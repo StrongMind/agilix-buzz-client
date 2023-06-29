@@ -10,7 +10,7 @@ module Agilix
   autoload :Agilix, "agilix/version"
 
   autoload :Api, "agilix/buzz/api"
-
+  autoload :Configuration, "agilix/buzz/configuration"
   autoload :Authentication, "agilix/buzz/commands/authentication"
   autoload :Course, "agilix/buzz/commands/course"
   autoload :Domain, "agilix/buzz/commands/domain"
