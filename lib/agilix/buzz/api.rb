@@ -9,6 +9,7 @@ module Agilix
       include Agilix::Buzz::Commands::Enrollment
       include Agilix::Buzz::Commands::General
       include Agilix::Buzz::Commands::Library
+      include Agilix::Buzz::Commands::Manifest
       include Agilix::Buzz::Commands::Report
       include Agilix::Buzz::Commands::Resource
       include Agilix::Buzz::Commands::Right
