@@ -79,5 +79,125 @@ class Agilix::Buzz::Commands::ManifestTest < Minitest::Test
         assert response.success?
       end
     end
+    end
+
+  describe "#put_items" do
+    it 'puts items in the manifest' do
+      VCR.use_cassette("Commands::Manifest put_items", match_requests_on: [:query], record: :new_episodes) do
+        response = api.put_items(
+          {
+            "items":[
+              {
+                "entityId":"196363507",
+                "id":"Resources",
+                "itemData":{
+                  "parentId":{
+                    "value":"DEFAULT"
+                  },
+                  "title":{
+                    "value":"Resources"
+                  },
+                  "gradingCategoryId":"",
+                  "weight":"",
+                  "gradeFlags":"",
+                  "maxAttempts":"",
+                  "thumbnailPath":"",
+                  "sequence":{
+                    "value":"aa"
+                  },
+                  "resourcesPath":"",
+                  "contentHref":"",
+                  "itemType":{
+                    "value":4
+                  },
+                  "isGradable":"",
+                  "completionTrigger":"",
+                  "allowFileSubmissions":"",
+                  "fileSubmissionType":"",
+                  "visibility":{
+                    "value":8
+                  },
+                  "customFields":""
+                },
+                "children":[]
+              },
+              {
+                "entityId":"196363507",
+                "id":"Resources_Instruction_2a13b0f2-5f4a-46f1-8d1d-06c60802dc8e",
+                "itemData":{
+                  "parentId":{
+                    "value":"Resources"
+                  },
+                  "title":{
+                    "value":"Teacher Resource Guide"
+                  },
+                  "gradingCategoryId":"",
+                  "weight":"",
+                  "gradeFlags":"",
+                  "maxAttempts":"",
+                  "thumbnailPath":"",
+                  "sequence":{
+                    "value":"aa"
+                  },
+                  "resourcesPath":"",
+                  "contentHref":{
+                    "value":"bltis://h2.flipswitch.com:443/FSProviderLaunch/26319?revisionid=70051\u0026smcatalogid=1278\u0026label=2d7455ab-ddf8-45dd-9890-c7c73dc08ab4"
+                  },
+                  "itemType":{
+                    "value":6
+                  },
+                  "isGradable":"",
+                  "completionTrigger":"",
+                  "allowFileSubmissions":"",
+                  "fileSubmissionType":"",
+                  "visibility":{
+                    "value":8
+                  },
+                  "customFields":""
+                },
+                "children":[]
+              },
+              {
+                "entityId":"196363507",
+                "id":"Unit_42891",
+                "itemData":{
+                  "parentId":{
+                    "value":"DEFAULT"
+                  },
+                  "title":{
+                    "value":"Unit 1: Expressions"
+                  },
+                  "gradingCategoryId":"",
+                  "weight":"",
+                  "gradeFlags":"",
+                  "maxAttempts":"",
+                  "thumbnailPath":{
+                    "value":"assets/Unit_42891/Unit_42891_IntroductionImage.png"
+                  },
+                  "sequence":{
+                    "value":"ab"
+                  },
+                  "resourcesPath":"",
+                  "contentHref":{
+                    "value":"assets/Unit_42891/Unit_42891_Introduction.html"
+                  },
+                  "itemType":{
+                    "value":4
+                  },
+                  "isGradable":"",
+                  "completionTrigger":"",
+                  "allowFileSubmissions":"",
+                  "fileSubmissionType":"",
+                  "visibility":{
+                    "value":0
+                  },
+                  "customFields":""
+                }
+              }
+            ]
+        })
+        assert response.success?
+      end
+    end
   end
 end
