@@ -2,8 +2,11 @@ module Agilix
   module Buzz
     module Commands
       module Manifest
-        def update_manifest_data(manifest_data)
-          authenticated_post cmd: 'updatemanifestdata', manifestdata: manifest_data
+        def update_manifest_data(items = [])
+          options = items.map do |item|
+            argument_cleaner(required_params: %i( manifest ), optional_params: %i( ), options: items )
+          end
+          authenticated_bulk_post cmd: 'updatemanifestdata', root_node: "manifests", body: options
         end
       end
     end
