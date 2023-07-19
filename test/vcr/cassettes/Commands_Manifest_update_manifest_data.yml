@@ -1,0 +1,100 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://api.agilixbuzz.com/cmd
+    body:
+      encoding: UTF-8
+      string: '{"request":{"cmd":"login2","username":"/<AGILIX_BUZZ_USERNAME>","password":"<AGILIX_BUZZ_PASSWORD>"}}'
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Tue, 18 Jul 2023 22:14:27 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '342'
+      Connection:
+      - keep-alive
+      Server:
+      - ''
+      Cache-Control:
+      - no-cache, no-store
+      Expires:
+      - "-1"
+      Pragma:
+      - no-cache
+      X-Content-Type-Options:
+      - nosniff
+      Strict-Transport-Security:
+      - max-age=63072000; includeSubdomains; preload
+      Agilix-Encoding:
+      - gzip
+      Agilix-Server:
+      - LKxLiApi_551632 (55)
+    body:
+      encoding: ASCII-8BIT
+      string: '{"response":{"code":"OK","user":{"userid":"195479013","username":"qwerty_talk","firstname":"Qwerty","lastname":"Talk","email":"qwertytalk@strongmind.com","domainid":"73521699","domainname":"StrongMind","userspace":"strongmind","token":"~0.Fb5t57oyyDslXspL.A.5qbzDa10f8akz5OEdyhfJx5R9VYE9OCQzPsuHcYJngM","authenticationexpirationminutes":14}}}'
+  recorded_at: Tue, 18 Jul 2023 22:14:26 GMT
+- request:
+    method: post
+    uri: https://api.agilixbuzz.com/cmd
+    body:
+      encoding: UTF-8
+      string: '{"request":{"cmd":"updatemanifestdata","manifestdata":[{"entityid":"60982"}],"_token":"~0.Fb5t57oyyDslXspL.A.5qbzDa10f8akz5OEdyhfJx5R9VYE9OCQzPsuHcYJngM"}}'
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Tue, 18 Jul 2023 22:14:27 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '138'
+      Connection:
+      - keep-alive
+      Server:
+      - ''
+      Cache-Control:
+      - no-cache, no-store
+      Expires:
+      - "-1"
+      Pragma:
+      - no-cache
+      X-Content-Type-Options:
+      - nosniff
+      Strict-Transport-Security:
+      - max-age=63072000; includeSubdomains; preload
+      Agilix-Encoding:
+      - gzip
+      Agilix-Server:
+      - LKxLiApi_771822 (6)
+    body:
+      encoding: ASCII-8BIT
+      string: '{"response":{"code":"Format","message":"XML request does not contain
+        a <requests> element.","errorId":"7274efab3f804e099c22690545cab3d8"}}'
+  recorded_at: Tue, 18 Jul 2023 22:14:27 GMT
+recorded_with: VCR 6.2.0
