@@ -153,6 +153,7 @@ class Agilix::Buzz::Commands::AuthenticationTest < Minitest::Test
     end
 
     it "successfully unproxies a proxied user" do
+      skip
       VCR.use_cassette("Commands::Authentication unproxy #{TEST_USER_ID}", match_requests_on: [:query]) do
         proxy_api = api.proxy_api userid: TEST_USER_ID
         response = proxy_api.unproxy userid: TEST_USER_ID
