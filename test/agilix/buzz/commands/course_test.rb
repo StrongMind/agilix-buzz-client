@@ -9,7 +9,7 @@ class Agilix::Buzz::Commands::CourseTest < Minitest::Test
         assert response.success?
         course_response = response.dig('response', 'responses', 'response').first
         assert_equal "OK", course_response['code']
-        assert course_response['course'].present?
+        assert !course_response['course'].empty?
       end
     end
   end
@@ -21,7 +21,7 @@ class Agilix::Buzz::Commands::CourseTest < Minitest::Test
         assert response.success?
         course_response = response.dig('response', 'responses', 'response').first
         assert_equal "OK", course_response['code']
-        assert course_response['course'].present?
+        assert !course_response['course'].empty?
       end
     end
   end
@@ -32,7 +32,7 @@ class Agilix::Buzz::Commands::CourseTest < Minitest::Test
         response = api.create_demo_course courseid: TEST_SOURCE_COURSE_ID, domainid: 57025, title: "Demo Course", daysoffset: 60
         assert response.success?
         assert_equal "OK", response.dig('response', 'code')
-        assert response.dig('response', 'course', 'courseid').present?
+        assert !response.dig('response', 'course', 'courseid').empty?
       end
     end
   end
@@ -87,7 +87,7 @@ class Agilix::Buzz::Commands::CourseTest < Minitest::Test
       VCR.use_cassette("Commands::Course list_courses for domain #{TEST_DOMAIN_ID}", match_requests_on: [:query]) do
         response = api.list_courses domainid: TEST_DOMAIN_ID,  show: 'all'
         assert response.success?
-        assert response.dig('response', 'courses', 'course').present?
+        assert !response.dig('response', 'courses', 'course').empty?
         assert response.dig('response', 'courses', 'course').sample["title"]
       end
     end
@@ -96,7 +96,7 @@ class Agilix::Buzz::Commands::CourseTest < Minitest::Test
       VCR.use_cassette("Commands::Course list_courses all", match_requests_on: [:query]) do
         response = api.list_courses domainid: '0'
         assert response.success?
-        assert response.dig('response', 'courses', 'course').present?
+        assert !response.dig('response', 'courses', 'course').empty?
       end
     end
   end

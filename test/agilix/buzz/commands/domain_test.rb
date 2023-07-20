@@ -120,7 +120,7 @@ class Agilix::Buzz::Commands::DomainTest < Minitest::Test
       VCR.use_cassette("Commands::Domain list_domains", match_requests_on: [:query]) do
         response = api.list_domains domainid: TEST_DOMAIN_ID, includedescendantdomains: true
         assert response.success?
-        assert response.dig('response', 'domains', 'domain').present?
+        assert !response.dig('response', 'domains', 'domain').empty?
         assert response.dig('response', 'domains', 'domain').sample["name"]
       end
     end
@@ -129,7 +129,7 @@ class Agilix::Buzz::Commands::DomainTest < Minitest::Test
       VCR.use_cassette("Commands::Domain list_domains all", match_requests_on: [:query]) do
         response = api.list_domains domainid: '0'
         assert response.success?
-        assert response.dig('response', 'domains', 'domain').present?
+        assert !response.dig('response', 'domains', 'domain').empty?
         assert response.dig('response', 'domains', 'domain').sample["name"]
       end
     end
