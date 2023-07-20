@@ -1,9 +1,6 @@
 require 'simplecov'
 SimpleCov.start
 
-require 'dotenv'
-Dotenv.load
-
 TEST_DOMAIN_ID            = '57025'
 TEST_SUBDOMAIN_ID         = '57031'
 TEST_SUBDOMAIN_ID2        = '57032'
