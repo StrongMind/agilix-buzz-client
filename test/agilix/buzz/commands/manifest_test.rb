@@ -5,9 +5,9 @@ class Agilix::Buzz::Commands::ManifestTest < Minitest::Test
     it 'updates manifest data' do
       VCR.use_cassette("Commands::Manifest update_manifest_data", match_requests_on: [:query]) do
         response = api.update_manifest_data(
-              { "manifest": [
+              [
                 {
-                  "entityId": "196363507",
+                  "entityid": "196363507",
                   "data": {
                     "allowStaticCopy": false,
                     "allowDerivativeChildCopy": true,
@@ -75,7 +75,7 @@ class Agilix::Buzz::Commands::ManifestTest < Minitest::Test
                   }
                 }
               ]
-              })
+              )
         assert response.success?
       end
     end
@@ -83,119 +83,118 @@ class Agilix::Buzz::Commands::ManifestTest < Minitest::Test
 
   describe "#put_items" do
     it 'puts items in the manifest' do
-      VCR.use_cassette("Commands::Manifest put_items", match_requests_on: [:query], record: :new_episodes) do
+      VCR.use_cassette("Commands::Manifest put_items", match_requests_on: [:query]) do
         response = api.put_items(
-          {
-            "items":[
+          [
               {
-                "entityId":"196363507",
-                "id":"Resources",
-                "itemData":{
-                  "parentId":{
+                "entityid":"196363507",
+                "itemid":"Resources",
+                "data":{
+                  "parentid":{
                     "value":"DEFAULT"
                   },
                   "title":{
                     "value":"Resources"
                   },
-                  "gradingCategoryId":"",
+                  "gradingcategoryid":"",
                   "weight":"",
-                  "gradeFlags":"",
-                  "maxAttempts":"",
-                  "thumbnailPath":"",
+                  "gradegflags":"",
+                  "maxattempts":"",
+                  "thumbnailpath":"",
                   "sequence":{
                     "value":"aa"
                   },
-                  "resourcesPath":"",
-                  "contentHref":"",
-                  "itemType":{
+                  "resourcespath":"",
+                  "contenthref":"",
+                  "itemtype":{
                     "value":4
                   },
-                  "isGradable":"",
-                  "completionTrigger":"",
-                  "allowFileSubmissions":"",
-                  "fileSubmissionType":"",
+                  "isgradable":"",
+                  "completiontrigger":"",
+                  "allowfilesubmissions":"",
+                  "filesubmissiontype":"",
                   "visibility":{
                     "value":8
                   },
-                  "customFields":""
+                  "customfields":""
                 },
                 "children":[]
               },
               {
-                "entityId":"196363507",
-                "id":"Resources_Instruction_2a13b0f2-5f4a-46f1-8d1d-06c60802dc8e",
-                "itemData":{
-                  "parentId":{
+                "entityid":"196363507",
+                "itemid":"Resources_Instruction_2a13b0f2-5f4a-46f1-8d1d-06c60802dc8e",
+                "data":{
+                  "parentid":{
                     "value":"Resources"
                   },
                   "title":{
                     "value":"Teacher Resource Guide"
                   },
-                  "gradingCategoryId":"",
+                  "gradingcategoryid":"",
                   "weight":"",
-                  "gradeFlags":"",
-                  "maxAttempts":"",
-                  "thumbnailPath":"",
+                  "gradeflags":"",
+                  "maxattempts":"",
+                  "thumbnailpath":"",
                   "sequence":{
                     "value":"aa"
                   },
-                  "resourcesPath":"",
-                  "contentHref":{
+                  "resourcespath":"",
+                  "contenthref":{
                     "value":"bltis://h2.flipswitch.com:443/FSProviderLaunch/26319?revisionid=70051\u0026smcatalogid=1278\u0026label=2d7455ab-ddf8-45dd-9890-c7c73dc08ab4"
                   },
-                  "itemType":{
+                  "itemtype":{
                     "value":6
                   },
-                  "isGradable":"",
-                  "completionTrigger":"",
-                  "allowFileSubmissions":"",
-                  "fileSubmissionType":"",
+                  "isgradable":"",
+                  "completiontrigger":"",
+                  "allowfilesubmissions":"",
+                  "filesubmissiontype":"",
                   "visibility":{
                     "value":8
                   },
-                  "customFields":""
+                  "customfields":""
                 },
                 "children":[]
               },
               {
-                "entityId":"196363507",
-                "id":"Unit_42891",
-                "itemData":{
-                  "parentId":{
+                "entityid":"196363507",
+                "itemid":"Unit_42891",
+                "data":{
+                  "parentid":{
                     "value":"DEFAULT"
                   },
                   "title":{
                     "value":"Unit 1: Expressions"
                   },
-                  "gradingCategoryId":"",
+                  "gradingcategoryid":"",
                   "weight":"",
-                  "gradeFlags":"",
-                  "maxAttempts":"",
-                  "thumbnailPath":{
+                  "gradeflags":"",
+                  "maxattempts":"",
+                  "thumbnailpath":{
                     "value":"assets/Unit_42891/Unit_42891_IntroductionImage.png"
                   },
                   "sequence":{
                     "value":"ab"
                   },
-                  "resourcesPath":"",
-                  "contentHref":{
+                  "resourcespath":"",
+                  "contenthref":{
                     "value":"assets/Unit_42891/Unit_42891_Introduction.html"
                   },
-                  "itemType":{
+                  "itemtype":{
                     "value":4
                   },
-                  "isGradable":"",
-                  "completionTrigger":"",
-                  "allowFileSubmissions":"",
-                  "fileSubmissionType":"",
+                  "isgradable":"",
+                  "completiontrigger":"",
+                  "allowfilesubmissions":"",
+                  "filesubmissiontype":"",
                   "visibility":{
                     "value":0
                   },
-                  "customFields":""
+                  "customfields":""
                 }
               }
             ]
-        })
+        )
         assert response.success?
       end
     end
