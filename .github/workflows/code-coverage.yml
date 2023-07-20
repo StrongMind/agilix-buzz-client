@@ -16,18 +16,6 @@ jobs:
       - name: Setup PostgreSQL with PostgreSQL extensions and unprivileged user
         uses: Daniel-Marynicz/postgresql-action@1.0.0
 
-      - name: Setup Ruby
-        uses: ruby/setup-ruby@v1
-        with:
-          bundler-cache: true # runs 'bundle install' and caches installed gems automatically
-          ruby-version: '3.1'
-      - run: |
-          bundle exec rails db:setup db:migrate
-        env:
-          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          RAILS_MASTER_KEY: ${{ secrets.RAILS_MASTER_KEY }}
-
       - name: Test & publish code coverage
         uses: paambaati/codeclimate-action@v5.0.0
         env:
