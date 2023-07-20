@@ -1,0 +1,106 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://api.agilixbuzz.com/cmd
+    body:
+      encoding: UTF-8
+      string: '{"request":{"cmd":"login2","username":"/<AGILIX_BUZZ_USERNAME>","password":"<AGILIX_BUZZ_PASSWORD>"}}'
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Thu, 20 Jul 2023 16:52:17 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '342'
+      Connection:
+      - keep-alive
+      Server:
+      - ''
+      Cache-Control:
+      - no-cache, no-store
+      Expires:
+      - "-1"
+      Pragma:
+      - no-cache
+      X-Content-Type-Options:
+      - nosniff
+      Strict-Transport-Security:
+      - max-age=63072000; includeSubdomains; preload
+      Agilix-Encoding:
+      - gzip
+      Agilix-Server:
+      - LKxLiApi_54632 (71)
+    body:
+      encoding: ASCII-8BIT
+      string: '{"response":{"code":"OK","user":{"userid":"195479013","username":"qwerty_talk","firstname":"Qwerty","lastname":"Talk","email":"qwertytalk@strongmind.com","domainid":"73521699","domainname":"StrongMind","userspace":"strongmind","token":"~0.QpaeP1woBRUlXspL.A.5OSraF7vfRBqI9SpbS7VmYO2oOaw7JffN9ggv22qROo","authenticationexpirationminutes":14}}}'
+  recorded_at: Thu, 20 Jul 2023 16:52:17 GMT
+- request:
+    method: post
+    uri: https://api.agilixbuzz.com/cmd?_token=~0.QpaeP1woBRUlXspL.A.5OSraF7vfRBqI9SpbS7VmYO2oOaw7JffN9ggv22qROo&cmd=updatemanifestdata
+    body:
+      encoding: UTF-8
+      string: '{"requests":{"manifest":[{"entityid":"196363507","data":{"allowStaticCopy":false,"allowDerivativeChildCopy":true,"allowDerivativeSiblingCopy":false,"gradeCategories":{"weighted":true,"categories":[{"id":1,"gradeView":0,"name":"Checkpoint","alphaIndex":"aa","weight":15},{"id":2,"gradeView":0,"name":"Discussion","alphaIndex":"ab","weight":15},{"id":3,"gradeView":0,"name":"Exam","alphaIndex":"ac","weight":15},{"id":4,"gradeView":0,"name":"Final
+        Exam","alphaIndex":"ad","weight":15},{"id":5,"gradeView":0,"name":"Pretest","alphaIndex":"ae","weight":0},{"id":6,"gradeView":0,"name":"Project","alphaIndex":"af","weight":30},{"id":7,"gradeView":0,"name":"Workbook","alphaIndex":"ag","weight":10}]},"description":"","gradeView":"","thumbnailPath":"","landingPagePath":{"value":"assets/syllabus.html"}}}]}}'
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Thu, 20 Jul 2023 16:52:17 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '67'
+      Connection:
+      - keep-alive
+      Server:
+      - ''
+      Cache-Control:
+      - no-cache, no-store
+      Expires:
+      - "-1"
+      Pragma:
+      - no-cache
+      X-Content-Type-Options:
+      - nosniff
+      Strict-Transport-Security:
+      - max-age=63072000; includeSubdomains; preload
+      X-Provisioned-Ms:
+      - '9000'
+      X-Provisioned-Ms-Remaining:
+      - '3932802'
+      X-Provisioned-Ms-Cost:
+      - '198'
+      Agilix-Encoding:
+      - gzip
+      Agilix-Server:
+      - LKxLiApi_39152 (250)
+    body:
+      encoding: ASCII-8BIT
+      string: '{"response":{"code":"OK","responses":{"response":[{"code":"OK"}]}}}'
+  recorded_at: Thu, 20 Jul 2023 16:52:17 GMT
+recorded_with: VCR 6.2.0

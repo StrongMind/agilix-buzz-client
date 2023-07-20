@@ -1,5 +1,5 @@
-require 'dotenv'
-Dotenv.load
+require 'simplecov'
+SimpleCov.start
 
 TEST_DOMAIN_ID            = '57025'
 TEST_SUBDOMAIN_ID         = '57031'
@@ -7,6 +7,7 @@ TEST_SUBDOMAIN_ID2        = '57032'
 TEST_USER_ID              = '57181'
 TEST_USER_ID2             = '57176'
 TEST_API_USER_ID          = '57026'
+TEST_COURSE_ID            = '60982'
 TEST_SOURCE_COURSE_ID     = '60982'
 TEST_DEACTIVATE_COURSE_ID = '60990'
 TEST_DELETE_COURSE_ID     = '60994'
