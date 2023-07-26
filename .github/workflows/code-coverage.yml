@@ -1,4 +1,4 @@
-name: test with coverage
+name: run test coverage
 
 on:
   workflow_dispatch:
