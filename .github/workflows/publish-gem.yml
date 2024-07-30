@@ -32,14 +32,11 @@ jobs:
           GEM_HOST_API_KEY: "${{secrets.RUBYGEMS_API_KEY}}"
           AGILIX_BUZZ_USERNAME: "${{ secrets.AGILIX_BUZZ_USERNAME }}"
           AGILIX_BUZZ_PASSWORD: "${{ secrets.AGILIX_BUZZ_PASSWORD }}"
-  VelocityCheckin:
-    uses: StrongMind/public-reusable-workflows/.github/workflows/velocityCheckin.yml@main
+          
+  notify_deployment:
+    name: Notify Deployment
+    needs: publish-gem
+    uses: strongmind/public-reusable-workflows/.github/workflows/send-deployment-notification.yml@main
     with:
-      sourceEnvironment: prod
-      sourceBranch: ${{ github.ref_name }}
-      sourceRevision: ${{ github.sha }}
-      sourceRepo: ${{ github.server_url }}/${{ github.repository }}
-      sourceVersion: ${{ github.run_id }}.${{ github.run_number }}.${{ github.run_attempt }}
-    secrets:
-      VELOCITY_DEPLOYMENT_TOKEN: ${{ secrets.VELOCITY_DEPLOYMENT_TOKEN }}
-
+      repository_name: ${{ github.repository }}
+    secrets: inherit
